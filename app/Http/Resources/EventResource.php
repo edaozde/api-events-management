@@ -31,7 +31,7 @@ class EventResource extends JsonResource
 
             //ajout des participants associés à l'event
 
-            'attendee' => AttendeeResource::collection(
+            'attendees' => AttendeeResource::collection(
                 $this->whenLoaded('attendees')
             )
         ];
