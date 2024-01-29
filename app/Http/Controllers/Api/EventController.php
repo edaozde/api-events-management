@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EventResource;
 use Illuminate\Http\Request;
 use App\Models\Event;
+
 
 
 class EventController extends Controller
@@ -17,7 +19,15 @@ class EventController extends Controller
 
         //récupérer tous les events
 
-         return Event::all();
+        //  return EventResource::collection(Event::all());
+
+        //récupérer tous les événements (Event) avec les détails de 
+        //l'utilisateur associé, puis utilise une collection de ressources 
+        //(EventResource::collection) pour transformer ces objets Event en une réponse JSON.
+
+
+         return EventResource::collection(Event::with('user')->get());
+
         
     }
 
@@ -38,7 +48,9 @@ class EventController extends Controller
             ]),
             'user_id' => 1
         ]);
-        return $event;
+        // return $event;
+        return new EventResource($event);
+
     }
 
     /**
@@ -46,7 +58,9 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return $event;
+        //retourner un event avec l'user associé
+        $event->load('user', 'attendees');
+        return new EventResource($event);
     }
 
     /**
@@ -62,8 +76,8 @@ class EventController extends Controller
                 'end_time' => 'sometimes|date|after:start_time'
             ])
             );
-            return $event;
-    }
+            return new EventResource($event);
+        }
 
     /**
      * Remove the specified resource from storage.
