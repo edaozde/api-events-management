@@ -14,7 +14,10 @@ class EventController extends Controller
      */
     public function index()
     {
-         return \App\Models\Event::all();
+
+        //récupérer tous les events
+
+         return Event::all();
         
     }
 
@@ -23,6 +26,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        //stocker un nouvel event dans la BdD
+        
         $event = Event::create([
             ...$request->validate([
                 'name' => 'required|string|max:255',
