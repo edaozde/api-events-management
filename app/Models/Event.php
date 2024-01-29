@@ -10,6 +10,8 @@ class Event extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'start_time', 'end_time', 'user_id'];
+
 
     //un évènement appartient à un utilisateur
     public function user(): BelongsTo
