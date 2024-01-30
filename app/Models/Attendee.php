@@ -13,7 +13,10 @@ class Attendee extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id'];
+
     //un participant appartient à un utilisateur
+
 
     public function user(): BelongsTo 
     {

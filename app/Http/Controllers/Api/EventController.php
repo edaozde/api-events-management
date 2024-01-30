@@ -26,7 +26,7 @@ class EventController extends Controller
         //(EventResource::collection) pour transformer ces objets Event en une réponse JSON.
 
 
-         return EventResource::collection(Event::with('user')->get());
+         return EventResource::collection(Event::with('user')->paginate());
 
         
     }
