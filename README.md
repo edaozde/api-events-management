@@ -16,10 +16,3 @@ Bienvenue dans l'API de gestion d'événements ! Cette API RESTful en Laravel vo
 - Postman pour tester les requêtes API
 - PHPUnit pour exécuter les tests unitaires
 
-## Utilisation de l'API
-
-L'API utilise les ressources API Laravel pour gérer les données. Voici les endpoints disponibles :
-
-- `/api/users` : Gestion des utilisateurs
-- `/api/events` : Gestion des événements
-- `/api/attendees` : Gestion des participants aux événements
