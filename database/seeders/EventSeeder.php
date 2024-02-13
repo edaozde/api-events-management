@@ -22,7 +22,7 @@ class EventSeeder extends Seeder
 
         //boucle pour créer des events fictifs, chaque itération, on choisi un user random parmi ceux 
         //recup au dessus et on appelle la factoryEvent pour lui associé un event à ce user
-        for($i = 0; $i < 200; $i++) {
+        for($i = 0; $i < 20; $i++) {
             $user = $users->random();
             \App\Models\Event::factory()->create([
                 'user_id' => $user->id
