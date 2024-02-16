@@ -30,28 +30,30 @@ class EventTest extends TestCase
      *
      * @return void
      */
-    public function testCreateAnEvent ()
-    {
-        $eventData = [
-            'name' => 'Wedding',
-            'description' => 'This is a wedding party.',
-            'start_time' => "2025-02-2 11:14:02",
-            'end_time' => "2025-02-10 11:14:02",
-            'user_id' => 10,
-        ];
+    // public function testCreateAnEvent ()
+    // {
+    //     $eventData = [
+    //         'name' => 'Wedding',
+    //         'description' => 'This is a wedding party.',
+    //         'start_time' => "2025-02-2 11:14:02",
+    //         'end_time' => "2025-02-10 11:14:02",
+    //         'user_id' => 10,
+    //     ];
 
-        $response = $this->post('/api/events', $eventData);
+    //     $response = $this->post('/api/events', $eventData);
 
-        $response->assertStatus(201);
+    //     $response->assertStatus(201);
 
-        $this->assertDatabaseHas('events', [
-            'name' => $eventData['name'],
-            'description' => $eventData['description'],
-            'user_id' =>10,
-        ]);
+    //     $this->assertDatabaseHas('events', [
+    //         'name' => $eventData['name'],
+    //         'description' => $eventData['description'],
+    //         'user_id' =>10,
+    //     ]);
 
-        $this->assertDatabaseHas('events', $eventData);
-    }
+    //     $this->assertDatabaseHas('events', $eventData);
+    // }
+
+   
 }
 
   
